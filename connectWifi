@@ -1,0 +1,11 @@
+#!/usr/bin/zsh
+
+if [[ $1 == "" ]]; then
+	ssid="Gargs_5G"
+else
+	ssid=$1
+fi
+
+echo "Connecting to $ssid..."
+
+nmcli device wifi connect $ssid --ask
