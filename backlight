@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+brightness_file="/sys/class/backlight/intel_backlight/brightness"
+
+step=5000
+current_brightness=$(< ${brightness_file})
+
+case $1 in
+	+) echo $(($[${current_brightness} + ${step}])) > ${brightness_file};;
+	-) echo $(($[${current_brightness} - ${step}])) > ${brightness_file};;
+esac
+
